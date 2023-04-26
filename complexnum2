@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class Complexnum
+{
+private:
+int re_x,re_y,im_x,im_y;
+int re_sum,im_sum;
+public:
+
+Complexnum(int re_a , int re_b , int im_a , int im_b)
+{
+re_x=re_a;
+re_y=re_b;
+im_x=im_a;
+im_y=im_b;
+}
+void re_im_sum()
+{
+re_sum=this->re_x+this->re_y;
+im_sum=this->im_x+this->im_y;
+}
+void showSum()
+{
+cout<< "The sum of the two numbers is:"<<re_sum<<" + "<<im_sum<<"i"<<endl;
+}
+};
+int main()
+{
+int re_x,re_y,im_x,im_y;
+cout<<"Enter the real and imaginary parts of complex numbers"<<endl;
+cin>>re_x>>im_x>>re_y>>im_y;
+Complexnum a(re_x,im_x,re_y,im_y);
+a.re_im_sum();
+a.showSum();
+return 0;
+}
