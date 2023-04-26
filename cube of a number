@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+class cubenum
+{
+	public:
+	double cube;
+	cubenum()
+	{
+		cube=0.0;
+	}
+	cubenum(double n)
+	{
+		cube=n*n*n;
+	}
+	void display()
+	{
+		cout<<cube<<endl;
+	}
+};
+int main()
+{
+	double x;
+	cout<<"Enter the number whose cube is to be found"<<endl;
+	cin>>x;
+	cubenum a(x);
+	a.display();
+	return 0;
+}	
