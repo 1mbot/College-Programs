@@ -1,0 +1,148 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee
+{
+private:
+    int emp_id;
+    string emp_name;
+
+public:
+    Employee(int empid = 0, string empname = "XYZ")
+    {
+        emp_id = empid;
+        emp_name = empname;
+    }
+
+    void setId(int empid)
+    {
+        emp_id = empid;
+    }
+
+    void setName(string empname)
+    {
+        emp_name = empname;
+    }
+
+    int getId()
+    {
+        return emp_id;
+    }
+
+    string getName()
+    {
+        return emp_name;
+    }
+};
+
+class FullTimeEmployee : public Employee
+{
+private:
+    int monthsal, dearall, hra;
+
+public:
+    FullTimeEmployee(int empid = 0, string empname = "XYZ", int msal = 0, int da = 0, int hr = 0)
+    {
+        monthsal = msal;
+        dearall = da;
+        hra = hr;
+        setId(empid);
+        setName(empname);
+    }
+
+    void setMonthsal(int msal)
+    {
+        monthsal = msal;
+    }
+
+    void setDearall(int da)
+    {
+        dearall = da;
+    }
+
+    void setHRA(int hr)
+    {
+        hra = hr;
+    }
+
+    void calculateSalary()
+    {
+        int monsal = monthsal + dearall + hra;
+        cout << "Salary: " << monsal << endl;
+    }
+};
+
+class PartTimeEmployee : public Employee
+{
+private:
+    int ropayph, hrs;
+
+public:
+    PartTimeEmployee(int empid = 0, string empname = "XYZ", int ropph = 0, int hours = 0)
+    {
+        ropayph = ropph;
+        hrs = hours;
+        setId(empid);
+        setName(empname);
+    }
+
+    void setRateofPay(int ropph)
+    {
+        ropayph = ropph;
+    }
+
+    void setNumHrs(int hours)
+    {
+        hrs = hours;
+    }
+
+    void calculateWages()
+    {
+        int wages = 30 * ropayph * hrs;
+        cout << "Wages: " << wages << endl;
+    }
+};
+
+int main()
+{
+    int n, x;
+    cout << "Enter the number of employees: ";
+    cin >> n;
+    cout << "Enter 1 for FullTimeEmployees and 2 for PartTimeEmployees: ";
+    cines and adding approp     employees[i].setName(emname);
+            employees[i].setMonthsal(msal);
+            employees[i].setDearall(da);
+            employees[i].setHRA(hr);
+            employees[i].calculateSalary();
+        }
+
+        delete[] employees; // Delete the dynamically allocated array
+        break;
+    }
+    case 2:
+    {
+        PartTimeEmployee* employees = new PartTimeEmployee[n]; // Create an array of PartTimeEmployee objects
+
+        for (int i = 0; i < n; i++)
+        {
+            int emid1, ropph, hours;
+            string emname1;
+
+            cout << "Enter the employee id, name, Rate of Payment per hour, and hours: ";
+            cin >> emid1 >> emname1 >> ropph >> hours;
+
+            employees[i].setId(emid1);
+            employees[i].setName(emname1);
+            employees[i].setRateofPay(ropph);
+            employees[i].setNumHrs(hours);
+            employees[i].calculateWages();
+        }
+
+        delete[] employees; // Delete the dynamically allocated array
+        break;
+    }
+    }
+
+    return 0;
+}
