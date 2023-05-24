@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+class Exterior {
+protected:
+    double area;
+
+public:
+    void getArea() {
+        cout << "Enter the area of the house in square feet: ";
+        cin >> area;
+    }
+};
+
+class Paint : public Exterior {
+protected:
+    string paintType;
+    string brand;
+
+public:
+    void selectPaint() {
+        cout << "Enter the type of paint: ";
+        cin >> paintType;
+        cout << "Enter the brand of paint: ";
+        cin >> brand;
+    }
+};
+
+class Bill : public Paint {
+public:
+    double calculateCost() {
+        double paintCost = area * 20.0;
+        return paintCost;
+    }
+
+    void displayBill() {
+        cout << "\n--- Final Bill ---\n";
+        cout << "Area of the house: " << area << " square feet\n";
+        cout << "Type of paint: " << paintType << endl;
+        cout << "Brand of paint: " << brand << endl;
+        cout << "Total cost: " << calculateCost()<<" rupees " << endl;
+    }
+};
+
+int main() {
+    Bill bill;
+    bill.getArea();
+    bill.selectPaint();
+    bill.displayBill();
+
+    return 0;
+}
