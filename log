@@ -1,0 +1,35 @@
+#include <iostream>
+
+double calculateLog(double x) {
+    const double epsilon = 1e-10;
+    
+    if (x <= 0) {
+        std::cerr << "Invalid input! Logarithm is defined only for positive numbers." << std::endl;
+        return 0.0;
+    }
+    
+    double result = 0.0;
+    double term = (x - 1) / (x + 1);
+    double currentTerm = term;
+    int n = 1;
+    
+    while (std::abs(currentTerm) > epsilon) {
+        result += currentTerm;
+        currentTerm *= term * term * (2 * n - 1) / (2 * n + 1);
+        n++;
+    }
+    
+    return 2 * result;
+}
+
+int main() {
+    double number;
+    
+    std::cout << "Enter a base number: ";
+    std::cin >> number;
+    
+    double logValue = calculateLog(number);
+    std::cout << "The logarithm of " << number << " is: " << logValue << std::endl;
+    
+    return 0;
+}
