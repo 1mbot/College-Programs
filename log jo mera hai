@@ -1,0 +1,46 @@
+#include<iostream>
+#include<cmath>
+class logarithm
+{
+    public:
+    virtual void loga(double num)=0;
+};
+class logarithm10 : public logarithm
+{
+    public:
+    void loga (double x)
+    {
+        double a;
+        a=log10(x);
+        std::cout<<a<<std::endl;
+    }
+};
+class logarithmE : public logarithm
+{
+    public:
+    void loga (double y)
+    {
+        double b;
+        b=log(y);
+        std::cout<<b<<std::endl;
+    }
+};
+class logarithm2 : public logarithm
+{
+    public:
+    void loga (double z)
+    {
+        double c;
+        c=log2(z);
+        std::cout<<c<<std::endl;
+    }
+};
+int main()
+{
+    logarithm10 l1;
+    logarithmE l2;
+    logarithm2 l3;
+    l1.loga(2);
+    l2.loga(3);
+    l3.loga(4);
+}
